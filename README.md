@@ -1,1 +1,0 @@
-# TECHNOPARK_1sem
