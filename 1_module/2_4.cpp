@@ -12,7 +12,7 @@
 #include <cassert>
 
 size_t binarySearch(const int* array, size_t left, size_t right, const int value) {
-  // assert(array);
+  assert(array);
 
   while (right - left > 1) {
     size_t mid = (left + right) / 2;
@@ -22,12 +22,13 @@ size_t binarySearch(const int* array, size_t left, size_t right, const int value
       left = mid;
     }
   }
-  return (value - array[left]) <= (array[right] - value) ? left : right;
+  return abs(value - array[left]) <= abs(array[right] - value) ? left : right;
 }
 
 size_t indexOfClosestValue(const int* const array, const size_t arraySize, const int value) {
-  // assert(array);
+  assert(array);
 
+  // simple cases
   if (value <= array[0]) {
     return 0;
   }
@@ -35,6 +36,7 @@ size_t indexOfClosestValue(const int* const array, const size_t arraySize, const
     return arraySize - 1;
   }
 
+  // finding borders of area to use binary search on
   size_t rightBorder = 1;
   while (array[rightBorder - 1] < value && (rightBorder << 1) < arraySize) {
     rightBorder <<= 1;
@@ -51,7 +53,7 @@ size_t indexOfClosestValue(const int* const array, const size_t arraySize, const
   return binarySearch(array, left, right, value);
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int main() {
   size_t n;

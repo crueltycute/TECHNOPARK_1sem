@@ -26,11 +26,6 @@ class Date {
 
   Date(int day, int month, int year) : day_(day), month_(month), year_(year) {}
 
-  Date(const Date&) = default;
-  Date(Date&&) = default;
-  Date& operator=(const Date&) = default;
-  Date& operator=(Date&&) = default;
-
   ~Date() = default;
 
   // set

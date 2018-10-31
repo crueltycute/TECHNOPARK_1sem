@@ -31,11 +31,39 @@ class Stack{
 };
 
 template <typename T>
+Stack<T>& Stack<T>::operator=(const Stack &object) {
+  if (this == &object) {
+    return *this;
+  }
+  size_ = object.size_;
+  capacity_ = object.capacity_;
+
+  delete[] array_;
+  array_ = new T[capacity_];
+  std::copy(object.array_, object.array_ + size_, array_);
+
+  return *this;
+}
+
+template <typename T>
+Stack<T>& Stack<T>::operator=(Stack &&object) {
+  if (this == &object) {
+    return *this;
+  }
+
+  delete[] array_;
+  array_ = object.array_;
+  size_ = object.size_;
+  capacity_ = object.capacity_;
+
+  object.array_ = nullptr;
+  return *this;
+}
+
+template <typename T>
 Stack<T>::Stack(const Stack& object) : size_(object.size_), capacity_(object.capacity_) {
   array_ = new T[capacity_];
-  for (int i = 0; i < size_; i++) {
-    array_[i] = object.array_[i];
-  }
+  std::copy(object.array_, object.array_ + size_, array_);
 }
 
 template <typename T>
@@ -43,28 +71,6 @@ Stack<T>::Stack(Stack&& object) : size_(object.size_), capacity_(object.capacity
   delete[] array_;
   array_ = object.array_;
   object.array_ = nullptr;
-}
-
-template <typename T>
-Stack<T>& Stack<T>::operator=(const Stack &object) {
-  size_ = object.size_;
-  capacity_ = object.capacity_;
-  delete[] array_;
-  array_ = new T[capacity_];
-  for (int i = 0; i < size_; i++) {
-    array_[i] = object.array_[i];
-  }
-  return *this;
-}
-
-template <typename T>
-Stack<T>& Stack<T>::operator=(Stack &&object) {
-  size_ = object.size_;
-  capacity_ = object.capacity_;
-  delete[] array_;
-  array_ = object.array_;
-  object.array_ = nullptr;
-  return *this;
 }
 
 template <typename T>
@@ -121,18 +127,18 @@ class Queue {
 
 template <typename T>
 Queue<T>::Queue(const Queue& object) {
-  frontStack_ = object.frontStack_;
+  frontStack_ = object.frontStack_, frontStack_;
   backStack_ = object.backStack_;
 }
 
 template <typename T>
-Queue<T>::Queue(Queue&& object)  {
-  frontStack_ = object.frontStack_;
-  backStack_ = object.backStack_;
+Queue<T>::Queue(Queue&& object) {
+  frontStack_ = std::move(object.frontStack_);
+  backStack_ = std::move(object.backStack_);
 }
 
 template <typename T>
-Queue<T>& Queue<T>::operator=(Queue &&object) {
+Queue<T>& Queue<T>::operator=(Queue&& object) {
   frontStack_ = object.frontStack_;
   backStack_ = object.backStack_;
   return *this;
@@ -173,27 +179,22 @@ int main() {
 
   Queue<int> stackBasedQueue;
 
-//  for (int i = 0; i < n; i++) {
-//    int command = 0, value = 0;
-//    std::cin >> command >> value;
-//    assert(command == 2 || command == 3);
-//
-//    if (command == 2) {
-//      if (value != stackBasedQueue.popFront()) {
-//        std::cout << "NO\n";
-//        return 0;
-//      }
-//    }
-//
-//    if (command == 3) {
-//      stackBasedQueue.pushBack(value);
-//    }
-//  }
+  for (int i = 0; i < n; i++) {
+    int command = 0, value = 0;
+    std::cin >> command >> value;
+    assert(command == 2 || command == 3);
 
-  Stack<int> stackToMove = Stack<int>()
+    if (command == 2) {
+      if (value != stackBasedQueue.popFront()) {
+        std::cout << "NO\n";
+        return 0;
+      }
+    }
 
-  Queue<int> queueToMove = Queue<int>();
-
+    if (command == 3) {
+      stackBasedQueue.pushBack(value);
+    }
+  }
 
   std::cout << "YES\n";
 
