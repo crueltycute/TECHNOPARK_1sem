@@ -1,0 +1,45 @@
+{% load static %}
+
+<div class="row">
+    <div class="col-lg col-md">
+        <aside>
+            <div class="container-fluid">
+                <div class="pull-left post-block">
+                    <img src="{% static "img/birdo.jpg" %}" width="128">
+                    <ul class="list-inline">
+                        <li><a>{{ question.votes }} upvotes</a></li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-arrow-down"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="media-body" style="padding-left: 10px">
+                    <h4 class="media-heading" style="padding-top: 10px"><a href="{% url 'ask:question' question.id %}">{{ question.title }}</a></h4>
+                    <p class="text-right">by <a>{{ question.author }}</a></p>
+                    <p>{{ question.text }}</p>
+                    <ul class="list-inline">
+                        <li><b>|</b></li>
+                        <li>
+                            <a href="{% url 'ask:question' question.id %}">answers({{ question.answer_set.count }})</a>
+                        </li>
+                        <li><b>|</b></li>
+                        <li>Tags:</li>
+                        {% for tag in question.tag_set.all %}
+                            <li>
+                                <a href="{% url 'ask:tag' tag %}">{{ tag }}</a>
+                            </li>
+                        {% endfor %}
+                        <li><b>|</b></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>

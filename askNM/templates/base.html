@@ -1,0 +1,32 @@
+<!DOCTYPE>
+<html lang="en">
+{% load static %}
+{% include "subtemplates/base/head.html" %}
+
+<body>
+    {% include "subtemplates/base/navbar.html" %}
+
+    <section id="question-section">
+        <div class="container">
+            <div class="row">
+                {% block title %}
+                {% endblock %}
+
+                <div class="col-sm-8 main-content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+
+                <div class="col-sm-4 sidebar">
+                    <div class="sidebar-module">
+                        {% include "subtemplates/base/sidebar_tags.html" %}
+                    </div>
+                    <div class="sidebar-module">
+                        {% include "subtemplates/base/sidebar_best_members.html" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

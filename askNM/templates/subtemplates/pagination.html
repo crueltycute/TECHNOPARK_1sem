@@ -1,0 +1,16 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% if questions_to_show.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ questions_to_show.previous_page_number }}">Previous</a></li>
+        {% endif %}
+        {% if questions_to_show.has_previous or questions_to_show.has_next %}
+            <li class="page-item"><a class="page-link active" href="#">Page {{ questions_to_show.number }}
+                of {{ questions_to_show.paginator.num_pages }}</a></li>
+        {% endif %}
+        {% if questions_to_show.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ questions_to_show.next_page_number }}">Next</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ questions_to_show.paginator.num_pages }}">Last</a></li>
+        {% endif %}
+    </ul>
+</nav>

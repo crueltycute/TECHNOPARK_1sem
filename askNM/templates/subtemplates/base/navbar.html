@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="/" class="navbar-brand">Ask NMERK</a>
+            </li>
+            <li>
+                <form class="navbar-form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="ask me a question">
+                        <div class="input-group-btn">
+                            <a type="button" href="{% url 'ask:ask' %}" class="btn btn-primary" role="button">Ask</a>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="{% url 'ask:login' %}"><span class="button"></span>Login</a>
+            </li>
+            <li>
+                <a href="{% url 'ask:signup' %}"><span class="button"></span>Sign Up</a>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <ul class="list-inline">
+        <li>
+            <h1>{{ title }}</h1>
+        </li>
+        <li>
+            <h4><a href="{{ questions_switcher.href }}">{{ questions_switcher.title }}</a></h4>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    {% for question in questions_to_show %}
+        {% include "subtemplates/question_unit.html" with question=question %}
+    {% endfor %}
+
+    {% include "subtemplates/pagination.html" %}
+{% endblock %}

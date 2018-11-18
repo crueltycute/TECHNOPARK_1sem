@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% include "subtemplates/question_unit.html" with question=question %}
+
+    {% for answer in answers %}
+        {% include "subtemplates/answer_unit.html" with answer=answer%}
+    {% endfor %}
+
+    <div class="row comment">
+        <div class="form-group">
+            <label></label>
+            <textarea class="form-control" rows="3" placeholder="Write your answer..."></textarea>
+            <button class="btn btn-outline-success my-2 my-sm-0">Answer</button>
+        </div>
+    </div>
+    {% include "subtemplates/pagination.html" %}
+
+{% endblock %}

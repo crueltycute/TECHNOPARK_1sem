@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <h1>Registration</h1>
+    <h4 style="color: red">NickName already exists</h4>
+{% endblock %}
+
+{% block content %}
+    <div class="col-sm-8">
+        <form>
+          <div class="form-group">
+            <label>Login</label>
+            <input class="form-control" placeholder="enter login">
+          </div>
+          <div class="form-group">
+            <label>E-mail</label>
+            <input class="form-control" placeholder="enter e-mail">
+          </div>
+          <div class="form-group">
+            <label>NickName</label>
+            <input class="form-control" placeholder="enter NickName">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input class="form-control" type="password" value="enter password">
+          </div>
+          <div class="form-group">
+            <label>Repeat password</label>
+            <input class="form-control" type="password" value="repeat password">
+          </div>
+          <div class="form-group">
+                <label for="exampleFormControlFile1">Upload Avatar</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+          </div>
+          <div class="form-group">
+                <img src="{% static "img/birdo.jpg" %}" width="128">
+          </div>
+          <button class="btn btn-outline-success my-2 my-sm-0">Register!</button>
+        </form>
+    </div>
+{% endblock %}

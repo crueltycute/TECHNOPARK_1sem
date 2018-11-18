@@ -1,0 +1,8 @@
+<div class="widget-sidebar">
+    <h2 class="title-widget-sidebar">Popular Tags</h2>
+    <div>
+        {% for tag in popular_tags %}
+         <h3><a href="{% url 'ask:tag' tag %}">{{ tag }}</a></h3>
+        {% endfor %}
+    </div>
+</div>

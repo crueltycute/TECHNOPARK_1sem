@@ -1,0 +1,36 @@
+{% load static %}
+
+<div class="row comment">
+    <div class="col-lg col-md">
+        <aside>
+            <div class="container-fluid">
+                <div class="pull-left post-block">
+                    <img src="{% static "img/birdo.jpg" %}" width="96">
+                    <ul class="list-inline">
+                        <li><a>{{ answer.votes }}</a></li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-arrow-down"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="media-body" style="padding-left: 10px">
+                    <p class="text-right">By <a>{{ answer.author }}</a></p>
+                    <p>{{ answer.text }}</p>
+                    <ul class="list-inline">
+                        <li><div class="checkbox">
+                        <label><input type="checkbox" value="">Correct</label>
+                    </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </aside>
+    </div>
+</div>

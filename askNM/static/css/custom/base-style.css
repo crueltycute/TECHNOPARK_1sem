@@ -1,0 +1,60 @@
+body {
+    background-color:#ffffff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button {
+    background-color: #db4848;
+    color: #ffffff;
+}
+
+.navbar {
+    background-color: rgba(170, 170, 170, 0.2);
+    border: 0px solid transparent;
+}
+
+aside {
+    margin-top: 30px;
+    -webkit-box-shadow: 1px 4px 16px 3px rgb(103, 128, 165);
+    -moz-box-shadow: 1px 4px 16px 3px rgb(103, 128, 165);
+    box-shadow: 1px 4px 16px 3px rgb(103, 128, 165);
+    background-color: white;
+}
+
+.widget-sidebar {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.title-widget-sidebar {
+    font-size: 14pt;
+    border-bottom: 2px solid #000000;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    margin-top: 0px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.comment{
+    padding-left: 20%;
+}
