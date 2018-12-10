@@ -1,0 +1,3 @@
+/Users/nadezda/Desktop/ТП/алгоритмы/модуль 2/in-order/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/nadezda/Desktop/ТП/алгоритмы/модуль 2/in-order/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/nadezda/Desktop/ТП/алгоритмы/модуль 2/in-order/cmake-build-debug/CMakeFiles/in_order.dir
